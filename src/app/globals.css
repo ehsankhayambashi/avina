@@ -1,33 +1,157 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "IranYekan";
+  src: url("../assets/font/IRANYekanRegular.ttf");
+  font-display: fallback;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "IranYekanNumber";
+  src: url("../assets/font/IRANYEKANRegularNumber.ttf");
+  font-display: fallback;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+  font-family: "IranYekanLight";
+  src: url("../assets/font/IRANYekanLight.ttf");
+  font-display: fallback;
 }
-
+@font-face {
+  font-family: "IranYekanBold";
+  src: url("../assets/font/IRANYekanBold.ttf");
+  font-display: fallback;
+}
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .rtl {
+    direction: rtl;
   }
+}
+
+@tailwind utilities;
+.ql-toolbar {
+  @apply !border-asiatech-gray-500 rounded-t-xl !border-b-0;
+}
+.ql-formats:nth-child(1) {
+  @apply max-xl:w-full !mr-0 max-xl:!flex justify-start;
+}
+.ql-formats:nth-child(1) .ql-picker {
+  @apply text-center max-xl:!w-full bg-asiatech-darkblue-400 rounded-lg;
+}
+.ql-container {
+  @apply min-h-[200px] border-asiatech-gray-500 rounded-b-xl;
+}
+.ql-editor {
+  @apply min-h-[200px];
+}
+
+@layer components {
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #98aab9 transparent;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #98aab9;
+    border-radius: 10px;
+    border: 3px solid transparent;
+  }
+
+  .sidebar {
+  }
+  .main-page {
+  }
+  .bordertabel {
+    @apply border-b border-solid border-asiatech-gray-500;
+  }
+  .bordertabel:nth-last-child(1) {
+    @apply border-0;
+  }
+
+  .box14 {
+    @apply border border-solid border-asiatech-gray-401 rounded-14;
+  }
+  @layer utilities {
+    .rtl {
+      direction: rtl;
+    }
+    .ltr {
+      direction: ltr;
+    }
+  }
+  .blue-radial {
+    background: radial-gradient(
+      45.87% 45.87% at 39.59% 50%,
+      rgba(32, 35, 61, 0.8) 0%,
+      rgba(32, 35, 61, 1) 100%
+    );
+  }
+  .overflow-unset {
+    overflow: unset;
+  }
+}
+/* for remove table header shadow*/
+table > thead > tr:first-child {
+  box-shadow: none !important;
+}
+.custom-select {
+  @apply relative w-48;
+}
+
+.selected-option {
+  @apply py-2 px-4 border border-gray-300 cursor-pointer;
+}
+
+.options-list {
+  @apply list-none p-0 m-0 absolute top-full left-0 w-full border border-t-0 bg-white;
+}
+
+.options-list li {
+  @apply py-2 px-4 cursor-pointer;
+}
+
+.options-list li:hover {
+  @apply bg-gray-100;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.fade-down {
+  animation: fadeInDown 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+
 }

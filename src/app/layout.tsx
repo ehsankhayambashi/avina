@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Toaster } from "react-hot-toast";
+import "react-tooltip/dist/react-tooltip.css";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import NextUIProviderIndex from "@/layout/NextUIProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,12 +11,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html className=" font-IranYekanNumber" dir="rtl" lang="en">
+      <head>
+        <link rel="icon" href="/next.svg" sizes="any" />
+        <title>admin</title>
+      </head>
+      <body className="bg-[#F9FAFB] min-h-screen">
+        <NextUIProviderIndex>{children}</NextUIProviderIndex>
+        <Toaster position="top-right" />
+      </body>
     </html>
   );
 }

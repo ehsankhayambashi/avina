@@ -1,0 +1,19 @@
+.first\:rounded-l-lg:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.first\:rounded-l-lg:first-child {
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+}
+
+.group[data-first="true"]
+  .group-data-\[first\=true\]\:first\:before\:rounded-tl-lg:first-child::before {
+  content: var(--tw-content);
+  border-top-left-radius: 0;
+}
+.group[data-first="true"]
+  .group-data-\[first\=true\]\:last\:before\:rounded-tr-lg:last-child::before {
+  content: var(--tw-content);
+  border-top-right-radius: 0;
+}
